@@ -1,13 +1,17 @@
+import shopMen from "../assets/shop-card.png";
+import shopWomen from "../assets/shop-card-2.png";
+import shopAccessories from "../assets/shop-card-sm2.png";
+import shopKids from "../assets/shop-card-sm.png";
+
 const shopCardImg = [
     {
         id: 1,
-        img: "./src/assets/shop-card.png",
+        img: shopMen,
         btnText: "MEN"
     },
-
     {
         id: 2,
-        img: "./src/assets/shop-card-2.png",
+        img: shopWomen,
         btnText: "WOMEN"
     }
 ]
@@ -15,20 +19,19 @@ const shopCardImg = [
 const shopSmImg = [
     {
         id: 1,
-        img: "./src/assets/shop-card-sm2.png",
+        img: shopAccessories,
         btnText: "ACCESSORIES"
     },
     {
         id: 2,
-        img: "./src/assets/shop-card-sm.png",
+        img: shopKids,
         btnText: "KIDS"
     }
 ]
 
-
 const ShopCard = () => {
     return (
-        <div className="flex flex-col p-10 items-center bg-[#FAFAFA]">
+        <div className="flex flex-col p-10 items-center bg-light-gray">
             <h1 className="text-2xl pb-3 pt-20 font-bold">EDITOR’S PICK</h1>
             <p className="text-m px-20 font-light text-center mb-8">
                 Problems trying to resolve the conflict between

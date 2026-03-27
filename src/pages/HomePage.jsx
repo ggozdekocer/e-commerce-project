@@ -1,5 +1,5 @@
 import ShopCard from '../components/ShopCard';
-import ProductCard from '../components/ProductCard';
+import BestsellerProducts from '../components/BestsellerProducts';
 import Container from '../layout/Container';
 import Blog from '../layout/Blog';
 import CarouselButtom from '../layout/CarouselButtom';
@@ -10,7 +10,7 @@ const HomePage = ()=>{
         <>
             <Carousel />
             <ShopCard />
-            <ProductCard />
+            <BestsellerProducts />
             <CarouselButtom />
             <Container />
             <Blog />

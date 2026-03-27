@@ -1,9 +1,10 @@
 import { ChevronRight, AlarmClock, ChartArea } from 'lucide-react';
+import blogImg from "../assets/blog-item.png";
 
 const blogItems = [
     {
         id: 1,
-        img: "./src/assets/blog-item.png",
+        img: blogImg,
         categories1: "Google",
         categories2: "Trending",
         categories3: "New",
@@ -14,7 +15,7 @@ const blogItems = [
     },
     {
         id: 2,
-        img: "./src/assets/blog-item.png",
+        img: blogImg,
         categories1: "Google",
         categories2: "Trending",
         categories3: "New",
@@ -25,7 +26,7 @@ const blogItems = [
     },
     {
         id: 3,
-        img: "./src/assets/blog-item.png",
+        img: blogImg,
         categories1: "Google",
         categories2: "Trending",
         categories3: "New",
@@ -42,15 +43,19 @@ const Blog = () => {
             <div className="flex flex-col justify-center items-center gap-1 mb-10 text-center lg:py-18">
                 <p className="text-sky-500 text-2xl font-bold">Practice Advice</p>
                 <p className="text-6xl font-bold">Featured Products</p>
-                <p className="lg:hidden text-custom-gray text-xl font-normal">Problems trying to resolve the conflict between the two major</p>
-                <p className="hidden lg:flex text-custom-gray text-xl font-normal pt-6 px-40">Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics</p>
+                <p className="lg:hidden text-custom-gray text-xl font-normal">
+                    Problems trying to resolve the conflict between the two major
+                </p>
+                <p className="hidden lg:flex text-custom-gray text-xl font-normal pt-6 px-40">
+                    Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics
+                </p>
                 <p className="text-5xl font-extralight text-pink-400 lg:hidden">-</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {blogItems.map((item) => (
                     <div key={item.id} className='border-custom-gray shadow-xl rounded-sm'>
-                        <img className='w-full' src={item.img} />
+                        <img className='w-full' src={item.img} alt={item.title} />
 
                         <div className="flex flex-row justify-start items-center gap-4 text-md pt-2 px-3">
                             <p className="text-sky-500">{item.categories1}</p>
@@ -59,7 +64,9 @@ const Blog = () => {
                         </div>
 
                         <p className="text-2xl px-3">{item.title}</p>
-                        <p className="text-custom-gray font-semibold pt-2 px-3">{item.description}</p>
+                        <p className="text-custom-gray font-semibold pt-2 px-3">
+                            {item.description}
+                        </p>
 
                         <div className="flex flex-row gap-5 pt-3 px-3">
                             <p className='flex flex-row gap-2'>
@@ -68,7 +75,8 @@ const Blog = () => {
                             </p>
                             <p className='flex flex-row gap-2'>
                                 <span className='text-green-700'><ChartArea /></span>
-                                {item.comment} <span className='hidden lg:flex'>comments</span>
+                                {item.comment} 
+                                <span className='hidden lg:flex'>comments</span>
                             </p>
                         </div>
 

@@ -1,70 +1,65 @@
+import productImg from "../assets/product-card.png";
+
 const productCardImg = [
     {
         id: 1,
-        img: "./src/assets/product-card.png",
+        img: productImg,
         title: "Graphic Design",
         subtitle: "English Department",
         price: "$16.48",
         discountedPrice: "$6.48",
     },
-
     {
         id: 2,
-        img: "./src/assets/product-card.png",
+        img: productImg,
         title: "Graphic Design",
         subtitle: "English Department",
         price: "$16.48",
         discountedPrice: "$6.48",
     },
-
     {
         id: 3,
-        img: "./src/assets/product-card.png",
+        img: productImg,
         title: "Graphic Design",
         subtitle: "English Department",
         price: "$16.48",
         discountedPrice: "$6.48",
     },
-
     {
         id: 4,
-        img: "./src/assets/product-card.png",
+        img: productImg,
         title: "Graphic Design",
         subtitle: "English Department",
         price: "$16.48",
         discountedPrice: "$6.48",
     },
-
     {
         id: 5,
-        img: "./src/assets/product-card.png",
+        img: productImg,
         title: "Graphic Design",
         subtitle: "English Department",
         price: "$16.48",
         discountedPrice: "$6.48",
     },
-
     {
         id: 6,
-        img: "./src/assets/product-card.png",
+        img: productImg,
         title: "Graphic Design",
         subtitle: "English Department",
         price: "$16.48",
         discountedPrice: "$6.48",
     },
-
     {
         id: 7,
-        img: "./src/assets/product-card.png",
+        img: productImg,
         title: "Graphic Design",
         subtitle: "English Department",
         price: "$16.48",
         discountedPrice: "$6.48",
     },
-
     {
         id: 8,
-        img: "./src/assets/product-card.png",
+        img: productImg,
         title: "Graphic Design",
         subtitle: "English Department",
         price: "$16.48",
@@ -72,8 +67,7 @@ const productCardImg = [
     },
 ]
 
-
-const ProductCard = () => {
+const BestsellerProducts = () => {
     return (
         <div className="font-montserrat flex flex-col items-center mt-20 px-4 lg:px-20">
             <div className="text-center flex flex-col gap-2">
@@ -84,7 +78,7 @@ const ProductCard = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 mt-10 w-full">
                 {productCardImg.map((i) => (
-                    <div key={i.id} className="bg-white h-[680px]">
+                    <div key={i.id} className="bg-white h-170">
                         <img
                             src={i.img}
                             alt={i.title}
@@ -120,4 +114,4 @@ const ProductCard = () => {
     )
 }
 
-export default ProductCard;
+export default BestsellerProducts;
