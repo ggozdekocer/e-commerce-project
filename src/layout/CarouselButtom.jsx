@@ -1,26 +1,5 @@
 import React, { useState } from 'react';
-import carouselImg from "../assets/carousel.png";
-
-const slides = [
-  {
-    id: 1,
-    img: carouselImg,
-    subtitle: "SUMMER 2020",
-    title: "Vita Classic Product",
-    text:"We know how large objects will act, but things on a small scale.",
-    buttonText: "ADD TO CART",
-    price: "$16.48"
-  },
-  {
-    id: 2,
-    img: carouselImg,
-    subtitle: "SUMMER 2020",
-    title: "Vita Classic Product",
-    text:"We know how large objects will act, but things on a small scale.",
-    buttonText: "ADD TO CART",
-    price: "$16.48"
-  }
-];
+import { bottomSlides as slides } from "../mock/mockData";
 
 const CarouselButtom = () => {
   const [current, setCurrent] = useState(0);

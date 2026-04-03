@@ -1,27 +1,5 @@
 import React, { useState } from 'react';
-import carouselMobile from "../assets/carousel-item.png";
-import carouselDesktop from "../assets/carousel-desktop.png";
-
-const slides = [
-  {
-    id: 1,
-    bgImage: carouselMobile,
-    desktopImg: carouselDesktop,
-    subtitle: "SUMMER 2020",
-    title: "NEW COLLECTION",
-    text: "We know how large objects will act, but things on a small scale.",
-    buttonText: "SHOP NOW",
-  },
-  {
-    id: 2,
-    bgImage: carouselMobile,
-    desktopImg: carouselDesktop,
-    subtitle: "SUMMER 2020",
-    title: "NEW COLLECTION",
-    text: "We know how large objects will act, but things on a small scale.",
-    buttonText: "EXPLORE",
-  }
-];
+import { slides } from "../mock/mockData";
 
 const Carousel = () => {
   const [current, setCurrent] = useState(0);

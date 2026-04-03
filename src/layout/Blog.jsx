@@ -1,41 +1,6 @@
 import { ChevronRight, AlarmClock, ChartArea } from 'lucide-react';
-import blogImg from "../assets/blog-item.png";
+import { blogItems } from "../mock/mockData";
 
-const blogItems = [
-    {
-        id: 1,
-        img: blogImg,
-        categories1: "Google",
-        categories2: "Trending",
-        categories3: "New",
-        title: "Loudest à la Madison #1 (L'integral)",
-        description: "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
-        date: "22 April 2021",
-        comment: "10",
-    },
-    {
-        id: 2,
-        img: blogImg,
-        categories1: "Google",
-        categories2: "Trending",
-        categories3: "New",
-        title: "Loudest à la Madison #1 (L'integral)",
-        description: "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
-        date: "22 April 2021",
-        comment: "10",
-    },
-    {
-        id: 3,
-        img: blogImg,
-        categories1: "Google",
-        categories2: "Trending",
-        categories3: "New",
-        title: "Loudest à la Madison #1 (L'integral)",
-        description: "We focus on ergonomics and meeting you where you work. It's only a keystroke away.",
-        date: "22 April 2021",
-        comment: "10",
-    }
-]
 
 const Blog = () => {
     return (

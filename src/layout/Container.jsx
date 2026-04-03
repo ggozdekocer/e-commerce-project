@@ -1,4 +1,4 @@
-import containerImg from "../assets/container-img.png";
+import containerImg  from "../assets/container-img.png";
 
 const Container = ()=> {
     return(
