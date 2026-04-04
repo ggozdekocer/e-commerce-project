@@ -3,9 +3,12 @@ import { Search, ShoppingCart, TextAlignJustify, Phone, Mail, UserRound } from '
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { topBar } from "../mock/mockData";
 import { Link } from "react-router-dom";
+import Gravatar from "react-gravatar";
+import { useClientStore } from "../store/client";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user } = useClientStore();
 
   return (
     <header className='font-montserrat'>
@@ -44,9 +47,23 @@ const Header = () => {
           <Link to="/contact" className="text-custom-gray! no-underline! pb-3">Contact</Link>
         </nav>
 
-        <p className='hidden lg:flex flex-row gap-1 text-sky-500 font-semibold pl-10 cursor-pointer'>
-          <UserRound />Login / Register
-        </p>
+        {user ? (
+          <div className="hidden lg:flex items-center gap-2 text-sky-500 font-semibold pl-10">
+            <Gravatar email={user.email} size={32} className="rounded-full" />
+            <span>{user.name}</span>
+          </div>
+        ) : (
+          <p className='hidden lg:flex flex-row gap-1 text-sky-500 font-semibold pl-10 cursor-pointer'>
+            <UserRound />
+            <Link to="/login" className="text-sky-500! no-underline! pb-3">
+              Login
+            </Link>
+            /
+            <Link to="/signup" className="text-sky-500! no-underline! pb-3">
+              Register
+            </Link>
+          </p>
+        )}
 
         <div className="flex gap-4 pb-3 cursor-pointer">
           <Search />
