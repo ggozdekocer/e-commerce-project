@@ -2,7 +2,8 @@ import { create } from "zustand";
 import axios from "axios";
 
 export const useClientStore = create((set, get) => ({
-    user: {},
+    user: null,
+    isAuthChecked: false,
     addressList: [],
     creditCards: [],
     roles: [],
@@ -10,6 +11,8 @@ export const useClientStore = create((set, get) => ({
     language: "tr",
 
     setUser: (user) => set({ user }),
+    setAuthChecked: (value) => set({ isAuthChecked: value }),
+
     setRoles: (roles) => set({ roles }),
     setTheme: (theme) => set({ theme }),
     setLanguage: (language) => set({ language }),

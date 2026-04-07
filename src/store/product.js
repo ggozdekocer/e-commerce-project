@@ -1,21 +1,43 @@
 import { create } from "zustand";
+import axiosInstance from "../api/axios";
 
 export const useProductStore = create((set, get) => ({
+  categories: [],
+  productList: [],
+  total: 0,
+  fetchState: "NOT_FETCHED",
 
-    categories: [],
-    productList: [],
-    total: 0,
-    limit: 25,
-    offset: 0,
-    filter: "",
-    fetchState: "NOT_FETCHED",
+  fetchCategories: async () => {
+    try {
+      const response = await axiosInstance.get("/categories");
+      set({ categories: response.data });
+    } catch (error) {
+      console.error("Kategoriler çekilemedi:", error);
+    }
+  },
 
-    setCategories: (categories) => set({ categories }),
-    setProductList: (productList) => set({ productList }),
-    setTotal: (total) => set({ total }),
-    setFetchState: (fetchState) => set({ fetchState }),
-    setLimit: (limit) => set({ limit }),
-    setOffset: (offset) => set({ offset }),
-    setFilter: (filter) => set({ filter }),
+  fetchProducts: async (category, filter, sort) => {
+    set({ fetchState: "FETCHING" });
+    try {
+      let url = "/products";
+      const params = new URLSearchParams();
 
+      if (category) params.append("category", category);
+      if (filter) params.append("filter", filter);
+      if (sort) params.append("sort", sort);
+
+      if (params.toString()) {
+        url += `?${params.toString()}`;
+      }
+
+      const response = await axiosInstance.get(url);
+      set({
+        productList: response.data.products,
+        total: response.data.total,
+        fetchState: "FETCHED"
+      });
+    } catch (error) {
+      set({ fetchState: "FAILED" });
+    }
+  }
 }));

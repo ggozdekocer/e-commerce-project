@@ -5,7 +5,7 @@ const Container = ()=> {
         <>
         <div className="lg:hidden font-montserrat flex flex-col justify-center items-center gap-20 mt-25">
             <div className="flex flex-col justify-center items-center gap-3 text-center ">
-                <h6 className="font-bold text-[#BDBDBD]">SUMMER 2020</h6>
+                <h6 className="font-bold text-muted-color">SUMMER 2020</h6>
                 <p className="font-bold px-20 text-5xl">Part of the Neural Universe</p>
                 <p className="font-light text-custom-gray px-28 text-xl">We know how large objects will act, but things on a small scale.</p>
             </div>
@@ -21,7 +21,7 @@ const Container = ()=> {
             className="h-130"
             src={containerImg}/>
             <div className="flex flex-col justify-center items-start gap-4">
-                <h6 className="font-bold text-[#BDBDBD]">SUMMER 2020</h6>
+                <h6 className="font-bold text-muted-color">SUMMER 2020</h6>
                 <p className="font-bold text-5xl">Part of the Neural Universe</p>
                 <p className="font-normal text-custom-gray text-lg pr-40">We know how large objects will act, but things on a small scale.</p>
 

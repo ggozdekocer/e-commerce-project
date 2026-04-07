@@ -1,4 +1,7 @@
 import './App.css'
+import { useEffect } from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Layout from "./layout/Layout";
@@ -9,8 +12,14 @@ import TeamPage from './pages/TeamPage';
 import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
+import { verifyTokenThunk } from "./store/thunks/clientThunk";
 
 function App() {
+
+  useEffect(() => {
+    verifyTokenThunk();
+  }, []);
+
   return (
     <Router>
       <Layout>
@@ -25,6 +34,19 @@ function App() {
           <Route exact path="/login" component={LoginPage} />
         </Switch>
       </Layout>
+
+      <ToastContainer 
+        position="top-right" 
+        autoClose={3000} 
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </Router>
   );
 }
