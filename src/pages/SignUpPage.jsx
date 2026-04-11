@@ -69,7 +69,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto px-10 py-30 lg:px-2 lg:py-50">
+    <div className="max-w-lg mx-auto px-10 py-30 lg:px-2">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-4 text-xl"
@@ -210,7 +210,7 @@ const Signup = () => {
         </button>
       </form>
       <div className="pt-6 text-xl">
-        <p>
+        <p className="text-gray-600">
           Already have an account?{" "}
           <Link to="/login" className="text-sky-600 hover:underline">
             Log in

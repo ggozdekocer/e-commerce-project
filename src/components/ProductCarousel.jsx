@@ -1,39 +1,25 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const products = [
-  {
-    id: 1,
-    img: "src/assets/yellow-sofa.png",
-  },
-  {
-    id: 2,
-    img: "src/assets/gray-chair.png",
-  },
-];
-
-const ProductCarousel = () => {
+const ProductCarousel = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  if (!images || images.length === 0) return null;
+
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? products.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === products.length - 1 ? 0 : prev + 1));
-  };
-
-  const selectSlide = (index) => {
-    setCurrentIndex(index);
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
   return (
     <div className="w-full px-10 lg:px-0 lg:w-140!">
-
-      <div className="relative">
+      <div className="relative group">
         <img
-          src={products[currentIndex].img}
-          alt={`product ${currentIndex}`}
-          className="w-150! h-100! object-cover"
+          src={images[currentIndex]?.url}
+          alt={`product-${currentIndex}`}
+          className="w-150! h-100! object-cover rounded-sm shadow-sm"
         />
 
         <button 
@@ -51,16 +37,15 @@ const ProductCarousel = () => {
         </button>
       </div>
 
-      {/* Thumbnail Görseller */}
-      <div className="flex gap-2 mt-4 justify-start">
-        {products.map((product, index) => (
+      <div className="flex gap-2 mt-4 justify-start overflow-x-auto">
+        {images.map((image, index) => (
           <img
-            key={product.id}
-            src={product.img}
-            alt={`thumb ${index}`}
-            onClick={() => selectSlide(index)}
-            className={`w-20 h-20 object-cover cursor-pointer border-2 ${
-              index === currentIndex ? "border-gray-300" : "border-transparent"
+            key={index}
+            src={image.url}
+            alt={`thumb-${index}`}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-20 h-20 object-cover cursor-pointer border-2 transition-all ${
+              index === currentIndex ? "border-sky-500 opacity-100" : "border-transparent opacity-60 hover:opacity-100"
             }`}
           />
         ))}

@@ -1,59 +1,48 @@
+import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import categoryImg from "../assets/col-md-4.png";
-
-const categories = [
-    {
-        id: 1,
-        text: "CLOTHS",
-        count: "5",
-        img: categoryImg
-    },
-    {
-        id: 2,
-        text: "CLOTHS",
-        count: "5",
-        img: categoryImg
-    },
-    {
-        id: 3,
-        text: "CLOTHS",
-        count: "5",
-        img: categoryImg
-    },
-    {
-        id: 4,
-        text: "CLOTHS",
-        count: "5",
-        img: categoryImg
-    },
-    {
-        id: 5,
-        text: "CLOTHS",
-        count: "5",
-        img: categoryImg
-    },
-]
+import { Link } from "react-router-dom";
+import { useProductStore } from "../store/product";
 
 const ShopCategories = () => {
+    const { categories } = useProductStore();
+
+    const topCategories = [...categories]
+        .sort((a, b) => b.rating - a.rating)
+        .slice(0, 5);
+
     return (
         <div className='bg-light-gray py-15 flex flex-col gap-3'>
             <div className='flex flex-col items-center px-22 bg-light-gray font-bold text-2xl gap-5 lg:flex-row lg:justify-between lg:text-3xl'>
                 <p>Shop</p>
-                <p className='flex flex-row gap-2'>Home <span className='flex flex-row gap-2 text-muted-color'><ChevronRight className='mt-2'/>Shop</span></p>
+                <p className='flex flex-row gap-2'>
+                    Home 
+                    <span className='flex flex-row gap-2 text-muted-color'>
+                        <ChevronRight className='mt-2'/>Shop
+                    </span>
+                </p>
             </div>
+            
             <div className='flex flex-col items-center gap-3 px-18 lg:flex-row lg:justify-between'>
-                {categories.map((item) => (
-                    <div key={item.id} className="relative text-white text-center">
-                        <img src={item.img} alt={item.text} />
-                        <div className="absolute inset-0 flex flex-col justify-center items-center">
-                            <h5 className="font-bold">{item.text}</h5>
-                            <p>{item.count} Items</p>
+                {topCategories.map((item) => (
+                    <Link 
+                        key={item.id} 
+                        to={`/shop/${item.gender === 'k' ? 'kadin' : 'erkek'}/${item.id}`}
+                        className="relative text-white text-center group cursor-pointer overflow-hidden transition-all w-full lg:w-1/5 h-[300px]"
+                    >
+                        <img 
+                            src={item.img} 
+                            alt={item.title} 
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 flex flex-col justify-center items-center bg-black/25 group-hover:bg-black/40 transition-colors">
+                            <h5 className="font-bold text-white uppercase tracking-wider">{item.title}</h5>
+                            <p className="text-white text-sm">Rating: {item.rating}</p>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default ShopCategories;

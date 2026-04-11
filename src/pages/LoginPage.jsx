@@ -39,12 +39,10 @@ const LoginPage = () => {
 };
 
   return (
-    <div className="max-w-md mx-auto mt-20 p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-      
+    <div className="max-w-lg mx-auto px-10 py-30 lg:px-2">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4"
+        className="flex flex-col gap-4 text-xl"
       >
         <div className="flex flex-col gap-1">
           <input
@@ -77,7 +75,7 @@ const LoginPage = () => {
           <input 
             type="checkbox" 
             {...register("remember")} 
-            className="mr-2 w-4 h-4"
+            className="mr-2! w-4! h-4!"
           />
           Remember me
         </label>
@@ -85,18 +83,16 @@ const LoginPage = () => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`p-2 rounded text-white font-semibold transition-colors ${
-            isSubmitting ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'
-          }`}
+          className="bg-sky-500 text-white p-2 font-semibold"
         >
           {isSubmitting ? "Logging in..." : "Login"}
         </button>
       </form>
 
-      <div className="pt-6 text-center">
+      <div className="pt-6 text-xl">
         <p className="text-gray-600">
           New here?{" "}
-          <Link to="/signup" className="text-sky-600 font-semibold hover:underline">
+          <Link to="/signup" className="text-sky-600 hover:underline">
             Create an account
           </Link>
         </p>
