@@ -27,7 +27,7 @@ const ShopCategories = () => {
                     <Link 
                         key={item.id} 
                         to={`/shop/${item.gender === 'k' ? 'kadin' : 'erkek'}/${item.id}`}
-                        className="relative text-white text-center group cursor-pointer overflow-hidden transition-all w-full lg:w-1/5 h-[300px]"
+                        className="relative text-white text-center group cursor-pointer overflow-hidden transition-all w-full lg:w-1/5 h-75"
                     >
                         <img 
                             src={item.img} 

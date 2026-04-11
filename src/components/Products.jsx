@@ -93,7 +93,7 @@ const Products = () => {
                         <Link 
                             to={`/shop/${product.gender === 'k' ? 'kadin' : 'erkek'}/${product.category_id}/${product.id}/${createSlug(product.name)}`} 
                             key={product.id} 
-                            className="!no-underline !text-inherit block w-full"
+                            className="no-underline! text-inherit! block w-full"
                         >
                             <div className="bg-white flex flex-col cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl group border border-transparent hover:border-gray-100 rounded-sm">
                                 <div className="overflow-hidden relative">
@@ -107,8 +107,8 @@ const Products = () => {
 
                                 <div className="pt-6 pb-8 text-center flex-1 flex flex-col justify-between px-4">
                                     <div>
-                                        <h3 className="font-bold text-base line-clamp-1 mb-2 group-hover:text-sky-500 transition-colors text-slate-800 !no-underline">{product.name}</h3>
-                                        <p className="text-custom-gray text-sm mb-3 line-clamp-1 font-medium !no-underline">{product.description}</p>
+                                        <h3 className="font-bold text-base line-clamp-1 mb-2 group-hover:text-sky-500 transition-colors text-slate-800 no-underline!">{product.name}</h3>
+                                        <p className="text-custom-gray text-sm mb-3 line-clamp-1 font-medium no-underline!">{product.description}</p>
                                         
                                         <div className="flex justify-center gap-2 text-base mt-2">
                                             <span className="text-green-700 font-bold">{product.price} ₺</span>
@@ -151,7 +151,7 @@ const Products = () => {
                                 disabled={page === '...'}
                                 className={`px-4 py-3 border-r font-bold transition-all
                                 ${currentPage === page ? "bg-sky-500 text-white" : "bg-white text-sky-500 hover:bg-sky-50"}
-                                ${page === '...' ? "cursor-default !text-gray-400 bg-gray-50" : "cursor-pointer"}`}
+                                ${page === '...' ? "cursor-default text-gray-400! bg-gray-50" : "cursor-pointer"}`}
                             >
                                 {page}
                             </button>
