@@ -65,7 +65,7 @@ const OrdersPage = () => {
                                                 </tr>
                                             </thead>
                                             <tbody className="divide-y divide-gray-100">
-                                                {order.products.map((product, idx) => (
+                                            {(order.items || []).map((product, idx) => (
                                                     <tr key={idx} className="group">
                                                         <td className="py-4 flex items-center gap-4">
                                                             <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden shrink-0">

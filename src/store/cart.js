@@ -83,9 +83,10 @@ export const useCartStore = create((set, get) => ({
     fetchOrders: async () => {
         try {
             const response = await axiosInstance.get('/order');
-            set({ orders: response.data });
+            set({ orders: Array.isArray(response.data) ? response.data : [] });
         } catch (error) {
             console.error("Orders fetch error:", error);
+            set({ orders: [] });
         }
     },
 
