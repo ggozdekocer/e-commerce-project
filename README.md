@@ -18,6 +18,18 @@ A fast, responsive, and feature-rich e-commerce web application built with **Rea
 - **Styling:** Tailwind CSS
 - **Routing:** React Router DOM
 
+## 📸 Ekran Görüntüleri / Screenshots
+
+<p align="center">
+  <img src="src/assets/1.jpeg" width="45%" alt="E-Commerce Screen 1" />
+  <img src="src/assets/2.jpeg" width="45%" alt="E-Commerce Screen 2" />
+</p>
+
+<p align="center">
+  <img src="src/assets/3.jpeg" width="45%" alt="E-Commerce Screen 3" />
+  <img src="src/assets/4.jpeg" width="45%" alt="E-Commerce Screen 4" />
+</p>
+
 ## ⚙️ Getting Started
 
 ### Prerequisites
