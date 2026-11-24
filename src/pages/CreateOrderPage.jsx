@@ -4,6 +4,7 @@ import { Plus, Edit, Trash2, CheckCircle, X, CreditCard, PartyPopper } from 'luc
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
+import { getErrorMessage } from '../api/axios';
 
 const CreateOrderPage = () => {
     const history = useHistory();
@@ -52,7 +53,7 @@ const CreateOrderPage = () => {
         const orderPayload = {
             address_id: selectedAddressId,
             order_date: new Date().toISOString().slice(0, 19),
-            card_no: parseInt(selectedCard.card_no),
+            card_no: selectedCard.card_no,
             card_name: selectedCard.name_on_card,
             card_expire_month: selectedCard.expire_month,
             card_expire_year: selectedCard.expire_year,
@@ -70,7 +71,7 @@ const CreateOrderPage = () => {
             setIsOrderSuccess(true);
             toast.success("Your order has been received successfully!");
         } catch (error) {
-            toast.error("An error occurred while creating the order.");
+            toast.error(getErrorMessage(error, "An error occurred while creating the order."));
         }
     };
 

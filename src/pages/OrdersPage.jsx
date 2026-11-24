@@ -65,26 +65,26 @@ const OrdersPage = () => {
                                                 </tr>
                                             </thead>
                                             <tbody className="divide-y divide-gray-100">
-                                            {(order.items || []).map((product, idx) => (
-                                                    <tr key={idx} className="group">
+                                            {(order.items || []).map((item) => (
+                                                    <tr key={item.id} className="group">
                                                         <td className="py-4 flex items-center gap-4">
                                                             <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden shrink-0">
                                                                 <img 
-                                                                    src={product.images?.[0]?.url} 
+                                                                    src={item.product?.images?.[0]?.url} 
                                                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform" 
-                                                                    alt={product.name}
+                                                                    alt={item.product?.name}
                                                                 />
                                                             </div>
                                                             <div>
-                                                                <p className="font-bold text-slate-800">{product.name}</p>
-                                                                <p className="text-xs text-gray-400 line-clamp-1">{product.description}</p>
+                                                                <p className="font-bold text-slate-800">{item.product?.name}</p>
+                                                                <p className="text-xs text-gray-400 line-clamp-1">{item.product?.description}</p>
                                                             </div>
                                                         </td>
                                                         <td className="py-4 text-center text-slate-600 font-medium">
-                                                            {product.count || 1}
+                                                            {item.count}
                                                         </td>
                                                         <td className="py-4 text-right font-bold text-slate-700">
-                                                            {product.price} ₺
+                                                            {item.product?.price} ₺
                                                         </td>
                                                     </tr>
                                                 ))}

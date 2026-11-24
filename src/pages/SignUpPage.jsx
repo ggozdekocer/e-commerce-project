@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import axiosInstance from "../api/axios";
+import { toast } from "react-toastify";
+import axiosInstance, { getErrorMessage } from "../api/axios";
 import { Link, useHistory } from "react-router-dom";
 import { useClientStore } from "../store/client";
+
+const STORE_ROLE_NAMES = ["store", "mağaza"];
+const isStoreRole = (role) => STORE_ROLE_NAMES.includes(role?.name?.toLowerCase());
 
 const Signup = () => {
   const roles = useClientStore((state) => state.roles);
@@ -16,6 +20,7 @@ const Signup = () => {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm();
 
@@ -26,45 +31,38 @@ const Signup = () => {
     fetchRoles();
   }, []);
 
+  // select the first role once the roles are loaded, so role_id is never empty
+  useEffect(() => {
+    if (roles.length > 0) {
+      setValue("role_id", String(roles[0].id));
+    }
+  }, [roles, setValue]);
+
   const onSubmit = async (data) => {
     setApiError("");
 
-    const isStore =
-      roles.find((r) => r.id === Number(data.role_id))?.name === "store";
+    const selectedRole = roles.find((r) => r.id === Number(data.role_id));
 
-    const formattedData = isStore
-      ? {
-          name: data.name,
-          email: data.email,
-          password: data.password,
-          role_id: Number(data.role_id),
-          store: {
-            name: data.store_name,
-            phone: data.store_phone,
-            tax_no: data.tax_no,
-            bank_account: data.bank_account,
-          },
-        }
-      : {
-          name: data.name,
-          email: data.email,
-          password: data.password,
-          role_id: Number(data.role_id),
-        };
+    const formattedData = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      role_id: Number(data.role_id),
+      ...(isStoreRole(selectedRole) && {
+        store_name: data.store_name,
+        store_phone: data.store_phone,
+        store_tax_no: data.tax_no,
+        store_bank_account: data.bank_account,
+      }),
+    };
 
     try {
       await axiosInstance.post("/signup", formattedData);
 
-      alert(
-        "You need to click link in email to activate your account!"
-      );
-
-      history.goBack();
+      toast.success("Account created! Please log in.");
+      history.push("/login");
     } catch (error) {
-      setApiError(
-        error.response?.data?.message ||
-          "Something went wrong"
-      );
+      setApiError(getErrorMessage(error, "Something went wrong"));
     }
   };
 
@@ -141,8 +139,7 @@ const Signup = () => {
           ))}
         </select>
 
-        {roles.find((r) => r.id === Number(roleId))?.name ===
-          "Mağaza" && (
+        {isStoreRole(roles.find((r) => r.id === Number(roleId))) && (
           <>
             <input
               placeholder="Store Name"

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import axios from "axios";
+import axiosInstance from "../api/axios";
 
 export const useClientStore = create((set, get) => ({
     user: null,
@@ -17,19 +17,14 @@ export const useClientStore = create((set, get) => ({
     setTheme: (theme) => set({ theme }),
     setLanguage: (language) => set({ language }),
 
-    fetchRoles: async() => {
-        const roles = get().roles;
-
-        if (roles.length > 0) return;
+    fetchRoles: async () => {
+        if (get().roles.length > 0) return;
 
         try {
-            const response = await axios.get(
-                "https://workintech-fe-ecommerce.onrender.com/roles"
-            );
-
-            set({ roles: response.data });
+            const response = await axiosInstance.get("/roles");
+            set({ roles: response.data.data });
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     },
 }));

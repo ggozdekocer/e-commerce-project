@@ -7,7 +7,7 @@ export const useCartStore = create((set, get) => ({
     address: {},
     addressList: [],
     cardList: [],
-    orders: [], // Yeni eklenen state
+    orders: [],
 
     setCart: (cart) => set({ cart }),
     clearCart: () => set({ cart: [] }),
@@ -18,7 +18,7 @@ export const useCartStore = create((set, get) => ({
     fetchAddresses: async () => {
         try {
             const response = await axiosInstance.get('/user/address');
-            set({ addressList: response.data });
+            set({ addressList: response.data.data });
         } catch (error) {
             console.error(error);
         }
@@ -45,7 +45,7 @@ export const useCartStore = create((set, get) => ({
     fetchCards: async () => {
         try {
             const response = await axiosInstance.get('/user/card');
-            set({ cardList: response.data });
+            set({ cardList: response.data.data });
         } catch (error) {
             console.error(error);
         }
@@ -73,7 +73,7 @@ export const useCartStore = create((set, get) => ({
         try {
             const response = await axiosInstance.post('/order', orderData);
             get().clearCart();
-            return response.data;
+            return response.data.data;
         } catch (error) {
             console.error(error);
             throw error;
@@ -83,7 +83,8 @@ export const useCartStore = create((set, get) => ({
     fetchOrders: async () => {
         try {
             const response = await axiosInstance.get('/order');
-            set({ orders: Array.isArray(response.data) ? response.data : [] });
+            const orders = response.data.data;
+            set({ orders: Array.isArray(orders) ? orders : [] });
         } catch (error) {
             console.error("Orders fetch error:", error);
             set({ orders: [] });
