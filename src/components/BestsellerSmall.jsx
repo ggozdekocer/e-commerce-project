@@ -16,7 +16,7 @@ const BestsellerSmall = () => {
                 {bestsellerList.map((product) => (
                     <Link 
                         key={product.id} 
-                        to={`/shop/${product.gender === 'k' ? 'kadin' : 'erkek'}/${product.category_id}/${product.id}/${createSlug(product.name)}`}
+                        to={`/shop/${product.category?.gender === 'k' ? 'kadin' : 'erkek'}/${product.category?.id}/${product.id}/${createSlug(product.name)}`}
                         className="no-underline! text-inherit!"
                     >
                         <div className="bg-white h-160 lg:h-120 group cursor-pointer transition-transform hover:-translate-y-2">

@@ -20,7 +20,7 @@ const BestsellerProducts = () => {
                 {bestsellerList.map((product) => (
                     <Link 
                         key={product.id} 
-                        to={`/shop/${product.gender === 'k' ? 'kadin' : 'erkek'}/${product.category_id}/${product.id}/${createSlug(product.name)}`}
+                        to={`/shop/${product.category?.gender === 'k' ? 'kadin' : 'erkek'}/${product.category?.id}/${product.id}/${createSlug(product.name)}`}
                         className="no-underline! text-inherit! block"
                     >
                         <div className="bg-white h-150 group cursor-pointer transition-all hover:shadow-lg">

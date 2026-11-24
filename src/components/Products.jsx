@@ -91,8 +91,8 @@ const Products = () => {
                 <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full justify-items-center px-10 transition-opacity duration-300 ${fetchState === "FETCHING" ? 'opacity-30' : 'opacity-100'}`}>
                     {productList.map((product) => (
                         <Link 
-                            to={`/shop/${product.gender === 'k' ? 'kadin' : 'erkek'}/${product.category_id}/${product.id}/${createSlug(product.name)}`} 
-                            key={product.id} 
+                            to={`/shop/${product.category?.gender === 'k' ? 'kadin' : 'erkek'}/${product.category?.id}/${product.id}/${createSlug(product.name)}`}
+                            key={product.id}
                             className="no-underline! text-inherit! block w-full"
                         >
                             <div className="bg-white flex flex-col cursor-pointer transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl group border border-transparent hover:border-gray-100 rounded-sm">

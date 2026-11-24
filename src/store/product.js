@@ -38,8 +38,8 @@ export const useProductStore = create((set) => ({
         total: response.data.data.total,
         fetchState: "FETCHED"
       });
-
     } catch (error) {
+      console.error(error);
       set({ fetchState: "FAILED" });
     }
   },
@@ -54,8 +54,8 @@ export const useProductStore = create((set) => ({
         currentProduct: response.data.data,
         fetchState: "FETCHED"
       });
-
     } catch (error) {
+      console.error(error);
       set({ fetchState: "FAILED" });
     }
   }
