@@ -7,7 +7,6 @@ import Gravatar from "react-gravatar";
 import { useClientStore } from "../store/client";
 import { useProductStore } from "../store/product";
 import { useCartStore } from "../store/cart";
-import axiosInstance from "../api/axios";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +28,6 @@ const Header = () => {
     setUser(null);
     localStorage.removeItem("token");
     sessionStorage.removeItem("token");
-    delete axiosInstance.defaults.headers.common["Authorization"];
     history.push("/");
   };
 

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axiosInstance from "../api/axios";
 
-export const useProductStore = create((set, get) => ({
+export const useProductStore = create((set) => ({
   categories: [],
   productList: [],
   currentProduct: null,
@@ -11,7 +11,7 @@ export const useProductStore = create((set, get) => ({
   fetchCategories: async () => {
     try {
       const response = await axiosInstance.get("/categories");
-      set({ categories: response.data });
+      set({ categories: response.data.data });
     } catch (error) {
       console.error(error);
     }
@@ -21,7 +21,6 @@ export const useProductStore = create((set, get) => ({
     set({ fetchState: "FETCHING" });
 
     try {
-      let url = "/products";
       const params = new URLSearchParams();
 
       if (category) params.append("category", category);
@@ -32,11 +31,11 @@ export const useProductStore = create((set, get) => ({
       params.append("offset", offset);
       params.append("limit", limit);
 
-      const response = await axiosInstance.get(`${url}?${params.toString()}`);
+      const response = await axiosInstance.get(`/products?${params.toString()}`);
 
       set({
-        productList: response.data.products,
-        total: response.data.total,
+        productList: response.data.data.products,
+        total: response.data.data.total,
         fetchState: "FETCHED"
       });
 
@@ -52,7 +51,7 @@ export const useProductStore = create((set, get) => ({
       const response = await axiosInstance.get(`/products/${productId}`);
 
       set({
-        currentProduct: response.data,
+        currentProduct: response.data.data,
         fetchState: "FETCHED"
       });
 

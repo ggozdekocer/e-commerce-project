@@ -1,28 +1,26 @@
-import axiosInstance from "../../api/axios";
+import axiosInstance, { getErrorMessage } from "../../api/axios";
 import { useClientStore } from "../client";
 
 export const loginThunk = async (data) => {
   try {
-    const loginData = {
+    const res = await axiosInstance.post("/login", {
       email: data.email,
       password: data.password
-    };
+    });
 
-    const res = await axiosInstance.post("/login", loginData);
+    const user = res.data.data;
+    const token = user.token;
 
-    const user = res.data; 
-    const token = res.data.token;
-
-    
     const store = useClientStore.getState();
     store.setUser(user);
     store.setAuthChecked(true);
 
-    axiosInstance.defaults.headers.common["Authorization"] = token;
-
+    // keep the token in one place only, so an old token is never read by mistake
     if (data.remember) {
+      sessionStorage.removeItem("token");
       localStorage.setItem("token", token);
     } else {
+      localStorage.removeItem("token");
       sessionStorage.setItem("token", token);
     }
 
@@ -32,34 +30,32 @@ export const loginThunk = async (data) => {
     console.error("Login Hatası:", error.response?.data);
     return {
       success: false,
-      message: error.response?.data?.message || "Giriş başarısız. Bilgilerinizi kontrol edin.",
+      message: getErrorMessage(error, "Giriş başarısız. Bilgilerinizi kontrol edin."),
     };
   }
 };
-
 
 export const verifyTokenThunk = async () => {
   const token = localStorage.getItem("token") || sessionStorage.getItem("token");
   const store = useClientStore.getState();
 
   if (!token) {
-    store.setAuthChecked(true); 
+    store.setAuthChecked(true);
     return;
   }
 
   try {
-    axiosInstance.defaults.headers.common["Authorization"] = token;
     const res = await axiosInstance.get("/verify");
+    const user = res.data.data;
 
-    store.setUser(res.data);
-    
-    const newToken = res.data.token;
+    store.setUser(user);
+
+    // save the renewed token in the same place the old one was
     if (localStorage.getItem("token")) {
-      localStorage.setItem("token", newToken);
+      localStorage.setItem("token", user.token);
     } else {
-      sessionStorage.setItem("token", newToken);
+      sessionStorage.setItem("token", user.token);
     }
-    axiosInstance.defaults.headers.common["Authorization"] = newToken;
   } catch (error) {
     localStorage.removeItem("token");
     sessionStorage.removeItem("token");
