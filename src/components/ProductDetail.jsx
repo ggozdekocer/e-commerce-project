@@ -12,6 +12,7 @@ const ProductDetail = () => {
     const addToCart = useCartStore(state => state.addToCart);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         fetchProductDetail(productId);
     }, [productId, fetchProductDetail]);
 
