@@ -1,6 +1,5 @@
 import { FaLinkedin } from "react-icons/fa";
-import { members } from "../mock/mockData";
-
+import membersData from "../data/members.json";
 const TeamMember = ()=> {
     return (
         <>
@@ -9,7 +8,7 @@ const TeamMember = ()=> {
                 <p className="text-2xl text-custom-gray font-light">Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics </p>
             </div>
             <div className="flex flex-col items-center gap-18 lg:grid lg:grid-rows-2 lg:grid-cols-4 lg:px-20">
-                {members.map((member) => (
+                {membersData.map((member) => (
                 <div key={member.id} className="flex flex-col gap-2">
                     <img src={member.profileImg} alt={member.username} />
                     <h3 className="text-detail-page font-normal! pt-2 lg:text-xl!">{member.username}</h3>

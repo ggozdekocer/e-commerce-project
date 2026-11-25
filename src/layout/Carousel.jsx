@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { slides } from "../mock/mockData";
+import slides from "../data/slides.json";
 
 const Carousel = () => {
   const [current, setCurrent] = useState(0);

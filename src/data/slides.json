@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "bgImage": "/images/carousel-item.png",
+      "desktopImg": "/images/carousel-desktop.png",
+      "subtitle": "SUMMER 2020",
+      "title": "NEW COLLECTION",
+      "text": "We know how large objects will act, but things on a small scale.",
+      "buttonText": "SHOP NOW"
+    },
+    {
+      "id": 2,
+      "bgImage": "/images/carousel-item.png",
+      "desktopImg": "/images/carousel-desktop.png",
+      "subtitle": "SUMMER 2020",
+      "title": "NEW COLLECTION",
+      "text": "We know how large objects will act, but things on a small scale.",
+      "buttonText": "EXPLORE"
+    }
+  ]

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { bottomSlides as slides } from "../mock/mockData";
+import bottomSlides from "../data/bottomSlides.json";
 
 const CarouselButtom = () => {
   const [current, setCurrent] = useState(0);
 
-  const nextSlide = () => setCurrent(current === slides.length - 1 ? 0 : current + 1);
-  const prevSlide = () => setCurrent(current === 0 ? slides.length - 1 : current - 1);
+  const nextSlide = () => setCurrent(current === bottomSlides.length - 1 ? 0 : current + 1);
+  const prevSlide = () => setCurrent(current === 0 ? bottomSlides.length - 1 : current - 1);
 
   return (
     <div className="relative w-full h-357.5 overflow-hidden bg-[#23856D] lg:h-180">
@@ -13,7 +13,7 @@ const CarouselButtom = () => {
         className="flex h-full transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
-      {slides.map((slide) => (
+      {bottomSlides.map((slide) => (
       <div key={slide.id} className="w-full h-full shrink-0 flex flex-col items-center relative bg-cover bg-center">
 
           <div className='lg:hidden text-center font-montressat text-white flex flex-col gap-4 px-10 pt-50'>
@@ -57,7 +57,7 @@ const CarouselButtom = () => {
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2 z-30">
-          {slides.map((_, i) => (
+          {bottomSlides.map((_, i) => (
             <div 
               key={i} 
               className={`h-1 transition-all duration-300 ${current === i ? 'w-8 bg-white' : 'w-4 bg-white/40'}`}
