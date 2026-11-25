@@ -1,56 +1,93 @@
-# 🛍️ E-Commerce Web Application Frontend
+# Bandage – E-commerce Frontend
 
-A fast, responsive, and feature-rich e-commerce web application built with **React**, **Vite**, **Redux**, and **Tailwind CSS**. Designed to work seamlessly with a RESTful backend service for dynamic shopping experiences.
+A React storefront for the [Commerce Platform API](https://github.com/ggozdekocer/commerce-platform-api). Customers can browse products by category, search and sort them, add them to a cart, and place orders after signing in.
 
-## ✨ Features
+Live demo: https://e-commerce-project-ten-iota.vercel.app
 
-- **Optimized Build & Performance:** Powered by **Vite** for lightning-fast development and optimized production builds.
-- **Global State Management:** Centralized **Redux** store managing shopping cart operations, category state, and user session handling with token-based auto-login.
-- **Dynamic Product Browsing:** Product listing, category filtering, and search functionality using URL query parameters for shareable links.
-- **Authentication & User Session:** End-to-end authentication flow including Sign Up, Login, and persistent JWT-based session management.
-- **Multi-page Architecture:** Modular routing with Product Details, Shopping Cart, Checkout, and Address/Card management.
+## Features
 
-## 🛠️ Tech Stack
+- Sign up (customer or store) and log in with a JWT, with an optional "remember me"
+- Shop pages with category menu, text search, sorting (price, rating) and paging
+- Product detail page with an image carousel
+- Cart that is kept per browser, with quantity and selection controls
+- Order creation with saved addresses and cards, and an order history page
+- Toast messages for success and error responses from the API
 
-- **Framework:** React.js, Vite
-- **State Management:** Redux, Redux Toolkit
-- **HTTP Client:** Axios
-- **Styling:** Tailwind CSS
-- **Routing:** React Router DOM
+## Tech stack
 
-## 📸 Ekran Görüntüleri / Screenshots
+- React 19 and React Router 5
+- Vite 7 (dev server and production bundler)
+- Tailwind CSS 4
+- Zustand for state management
+- React Hook Form for forms
+- Axios for API calls
+- React Toastify and Lucide icons
 
-<p align="center">
-  <img src="src/assets/1.jpeg" width="45%" alt="E-Commerce Screen 1" />
-  <img src="src/assets/2.jpeg" width="45%" alt="E-Commerce Screen 2" />
-</p>
+## Getting started
 
-<p align="center">
-  <img src="src/assets/3.jpeg" width="45%" alt="E-Commerce Screen 3" />
-  <img src="src/assets/4.jpeg" width="45%" alt="E-Commerce Screen 4" />
-</p>
+You need Node.js 20 or newer and a running backend (see the API repository).
 
-## ⚙️ Getting Started
+```bash
+npm install
+npm run dev
+```
 
-### Prerequisites
+The app starts on http://localhost:5173.
 
-Make sure you have Node.js installed on your machine.
+### Configuration
 
-### Installation
+The API address is read from an environment variable. Create a `.env.local` file in the project root:
 
-1. Clone the repository:
-   git clone https://github.com/ggozdekocer/e-commerce-project.git
-   cd e-commerce-project
+```
+VITE_API_URL=http://localhost:8080
+```
 
-2. Install dependencies:
-   npm install
+Without this file the app uses the deployed backend. `.env.local` is not committed.
 
-3. Run the development server:
-   npm run dev
+### Scripts
 
-4. Build for production:
-   npm run build
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Starts the development server |
+| `npm run build` | Creates the production build in `dist/` |
+| `npm run preview` | Serves the production build locally |
 
-## 👤 Author
+## Project structure
 
-- **Gözde Koçer** - [LinkedIn](https://linkedin.com/in/gozdekocer) • [GitHub](https://github.com/ggozdekocer)
+The code is grouped by feature. Each feature keeps its own pages, components and store.
+
+```
+src/
+  api/              Axios instance and error helper
+  assets/           Images that are imported by components
+  data/             Static content as JSON (top bar, blog, slides, team)
+  layout/           Header, footer and the page layout
+  styles/           Tailwind theme (colors and fonts)
+  features/
+    auth/           Login, sign up, route guard, user store
+    product/        Shop, product list, product detail, product store
+    cart/           Cart page and cart store
+    order/          Create order and order history pages
+    home/           Home page sections
+    company/        About, team, contact and blog pages
+public/images/      Images that are loaded from JSON files
+```
+
+## How it talks to the API
+
+Every response of the API has the same shape (`data`, `success_message`, `http_status`, `error_message`). The stores read the payload from `data`, and errors show `error_message` in a toast. After login the token is sent as `Authorization: Bearer <token>` on every request by an Axios interceptor.
+
+| Screen | Endpoints |
+| --- | --- |
+| Sign up and login | `POST /signup`, `POST /login`, `GET /verify`, `GET /roles` |
+| Shop | `GET /categories`, `GET /products` (category, filter, sort, offset, limit), `GET /products/{id}` |
+| Orders | `GET /user/address`, `GET /user/card`, `POST /order`, `GET /order` |
+
+## Deployment
+
+The `master` branch is deployed to Vercel. Set `VITE_API_URL` in the Vercel project settings to point at the production API.
+
+## Notes
+
+- The payment step is simulated, no real payment is made.
+- Shipping is a flat fee that the backend adds to every order.
