@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Link, useHistory } from "react-router-dom";
-import { loginThunk } from "../store/thunks/clientThunk";
+import { loginThunk } from "../store/clientThunk";
 import { toast } from 'react-toastify'; // ToastContainer'ı App.js'e koyduğumuz için burada sadece toast yetiyor
 
 const LoginPage = () => {

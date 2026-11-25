@@ -10,14 +10,14 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import ContactPage from './pages/ContactPage';
 import TeamPage from './pages/TeamPage';
 import AboutUsPage from './pages/AboutUsPage';
-import SignUpPage from './pages/SignUpPage';
-import LoginPage from './pages/LoginPage';
+import SignUpPage from './features/auth/pages/SignUpPage';
+import LoginPage from './features/auth/pages/LoginPage';
 import BlogPage from "./pages/BlogPage";
 import CartPage from './pages/CartPage';
 import CreateOrderPage from './pages/CreateOrderPage';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './features/auth/components/PrivateRoute';
 import OrdersPage from './pages/OrdersPage';
-import { verifyTokenThunk } from "./store/thunks/clientThunk";
+import { verifyTokenThunk } from "./features/auth/store/clientThunk";
 
 function App() {
   useEffect(() => {

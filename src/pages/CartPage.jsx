@@ -2,7 +2,7 @@ import React from 'react';
 import { Trash2, Plus, Minus, ChevronRight, ShoppingBag, ChevronLeft } from 'lucide-react';
 import { useHistory } from 'react-router-dom';
 import { useCartStore } from "../store/cart";
-import { useClientStore } from "../store/client";
+import { useClientStore } from "../features/auth/store/client";
 
 const CartPage = () => {
     const history = useHistory();

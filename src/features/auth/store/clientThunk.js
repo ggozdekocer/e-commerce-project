@@ -1,5 +1,5 @@
-import axiosInstance, { getErrorMessage } from "../../api/axios";
-import { useClientStore } from "../client";
+import axiosInstance, { getErrorMessage } from "../../../api/axios";
+import { useClientStore } from "./client";
 
 export const loginThunk = async (data) => {
   try {
