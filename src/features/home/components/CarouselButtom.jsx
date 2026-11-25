@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import bottomSlides from "../data/bottomSlides.json";
+import bottomSlides from "../../../data/bottomSlides.json";
 
 const CarouselButtom = () => {
   const [current, setCurrent] = useState(0);

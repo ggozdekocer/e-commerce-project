@@ -1,7 +1,7 @@
-import shopMen from "../assets/shop-card.png";
-import shopWomen from "../assets/shop-card-2.png";
-import shopAccessories from "../assets/shop-card-sm2.png";
-import shopKids from "../assets/shop-card-sm.png";
+import shopMen from "../../../assets/shop-card.png";
+import shopWomen from "../../../assets/shop-card-2.png";
+import shopAccessories from "../../../assets/shop-card-sm2.png";
+import shopKids from "../../../assets/shop-card-sm.png";
 
 const shopCardImg = [
     {

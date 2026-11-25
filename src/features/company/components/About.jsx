@@ -1,9 +1,9 @@
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
-import Brands from "../features/product/components/Brands";
-import aboutUsImg1 from "../assets/about-us-img1.png";
-import mobileVideo from "../assets/mobile-video.png";
-import desktopVideo from "../assets/desktop-video.png";
-import teamUser2 from "../assets/team-user-2.png";
+import Brands from "../../product/components/Brands";
+import aboutUsImg1 from "../../../assets/about-us-img1.png";
+import mobileVideo from "../../../assets/mobile-video.png";
+import desktopVideo from "../../../assets/desktop-video.png";
+import teamUser2 from "../../../assets/team-user-2.png";
 
 const About = () => {
   return (

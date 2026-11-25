@@ -1,5 +1,5 @@
 import { ChevronRight, AlarmClock, ChartArea } from 'lucide-react';
-import blog from "../data/blog.json";
+import blog from "../../../data/blog.json";
 
 
 const Blog = () => {

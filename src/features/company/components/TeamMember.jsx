@@ -1,5 +1,6 @@
 import { FaLinkedin } from "react-icons/fa";
-import membersData from "../data/members.json";
+import membersData from "../../../data/members.json";
+
 const TeamMember = ()=> {
     return (
         <>

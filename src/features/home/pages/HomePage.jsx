@@ -1,9 +1,9 @@
 import ShopCard from '../components/ShopCard';
-import BestsellerProducts from '../features/product/components/BestsellerProducts';
-import Container from '../layout/Container';
-import Blog from '../layout/Blog';
-import CarouselButtom from '../layout/CarouselButtom';
-import Carousel from '../layout/Carousel';
+import BestsellerProducts from '../../product/components/BestsellerProducts';
+import Container from '../../../layout/Container';
+import Blog from '../../company/components/Blog';
+import CarouselButtom from '../components/CarouselButtom';
+import Carousel from '../components/Carousel';
 
 const HomePage = ()=>{
     return (
