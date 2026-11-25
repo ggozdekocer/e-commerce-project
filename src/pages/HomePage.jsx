@@ -1,5 +1,5 @@
 import ShopCard from '../components/ShopCard';
-import BestsellerProducts from '../components/BestsellerProducts';
+import BestsellerProducts from '../features/product/components/BestsellerProducts';
 import Container from '../layout/Container';
 import Blog from '../layout/Blog';
 import CarouselButtom from '../layout/CarouselButtom';

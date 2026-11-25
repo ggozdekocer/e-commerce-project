@@ -1,6 +1,5 @@
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
-import Brands from "../components/Brands";
-
+import Brands from "../features/product/components/Brands";
 import aboutUsImg1 from "../assets/about-us-img1.png";
 import mobileVideo from "../assets/mobile-video.png";
 import desktopVideo from "../assets/desktop-video.png";
