@@ -3,9 +3,9 @@ import { Search, ShoppingCart, TextAlignJustify, Phone, Mail, UserRound, Chevron
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { Link, useHistory } from "react-router-dom";
 import Gravatar from "react-gravatar";
-import { useClientStore } from "../store/client";
-import { useProductStore } from "../store/product";
-import { useCartStore } from "../store/cart";
+import { useClientStore } from "../features/auth/store/client";
+import { useProductStore } from "../features/product/store/product";
+import { useCartStore } from "../features/cart/store/cart";
 import topBar from "../data/topBar.json";
 
 const Header = () => {
