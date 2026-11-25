@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useCartStore } from '../store/cart';
+import { useCartStore } from '../../cart/store/cart';
 import { Plus, Edit, Trash2, CheckCircle, X, CreditCard, PartyPopper } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
-import { getErrorMessage } from '../api/axios';
+import { getErrorMessage } from '../../../api/axios';
 
 const CreateOrderPage = () => {
     const history = useHistory();

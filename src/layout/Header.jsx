@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import Gravatar from "react-gravatar";
 import { useClientStore } from "../features/auth/store/client";
 import { useProductStore } from "../store/product";
-import { useCartStore } from "../store/cart";
+import { useCartStore } from "../features/cart/store/cart";
 import topBar from "../data/topBar.json";
 
 const Header = () => {

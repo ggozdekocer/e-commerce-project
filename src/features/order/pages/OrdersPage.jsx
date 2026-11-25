@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useCartStore } from "../store/cart";
+import { useCartStore } from "../../cart/store/cart";
 import { ChevronDown, ChevronUp, Package, Calendar, CreditCard } from 'lucide-react';
 
 const OrdersPage = () => {

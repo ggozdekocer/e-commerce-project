@@ -13,10 +13,10 @@ import AboutUsPage from './pages/AboutUsPage';
 import SignUpPage from './features/auth/pages/SignUpPage';
 import LoginPage from './features/auth/pages/LoginPage';
 import BlogPage from "./pages/BlogPage";
-import CartPage from './pages/CartPage';
-import CreateOrderPage from './pages/CreateOrderPage';
+import CartPage from './features/cart/pages/CartPage';
+import CreateOrderPage from './features/order/pages/CreateOrderPage';
 import PrivateRoute from './features/auth/components/PrivateRoute';
-import OrdersPage from './pages/OrdersPage';
+import OrdersPage from './features/order/pages/OrdersPage';
 import { verifyTokenThunk } from "./features/auth/store/clientThunk";
 
 function App() {

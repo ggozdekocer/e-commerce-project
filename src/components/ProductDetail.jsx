@@ -3,7 +3,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { ChevronRight, Heart, ShoppingCart, Eye, Loader2, ChevronLeft } from 'lucide-react';
 import ProductCarousel from './ProductCarousel';
 import { useProductStore } from "../store/product";
-import { useCartStore } from "../store/cart";
+import { useCartStore } from "../features/cart/store/cart";
 
 const ProductDetail = () => {
     const { productId } = useParams();
