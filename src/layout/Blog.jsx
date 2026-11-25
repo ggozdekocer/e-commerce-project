@@ -1,5 +1,5 @@
 import { ChevronRight, AlarmClock, ChartArea } from 'lucide-react';
-import { blogItems } from "../mock/mockData";
+import blog from "../data/blog.json";
 
 
 const Blog = () => {
@@ -18,7 +18,7 @@ const Blog = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {blogItems.map((item) => (
+                {blog.map((item) => (
                     <div key={item.id} className='border-custom-gray shadow-xl rounded-sm'>
                         <img className='w-full' src={item.img} alt={item.title} />
 
