@@ -1,0 +1,58 @@
+[
+    {
+      "id": 1,
+      "profileImg": "/images/team-user.jpg",
+      "username": "Gözde Koçer",
+      "position": "Full Stack Developer",
+      "linkedin": "https://www.linkedin.com/in/gozdekocer/"
+    },
+    {
+      "id": 2,
+      "profileImg": "/images/team-user.jpg",
+      "username": "Jerome Bell",
+      "position": "UI/UX Designer",
+      "linkedin": "https://www.linkedin.com/company/workintech/"
+    },
+    {
+      "id": 3,
+      "profileImg": "/images/team-user.jpg",
+      "username": "Brooklyn Simmons",
+      "position": "Frontend Developer",
+      "linkedin": "https://www.linkedin.com/company/workintech/"
+    },
+    {
+      "id": 4,
+      "profileImg": "/images/team-user.jpg",
+      "username": "Ronald Richards",
+      "position": "Backend Developer",
+      "linkedin": "https://www.linkedin.com/company/workintech/"
+    },
+    {
+      "id": 5,
+      "profileImg": "/images/team-user.jpg",
+      "username": "Floyd Miles",
+      "position": "Product Manager",
+      "linkedin": "https://www.linkedin.com/company/workintech/"
+    },
+    {
+      "id": 6,
+      "profileImg": "/images/team-user.jpg",
+      "username": "Esther Howard",
+      "position": "QA Engineer",
+      "linkedin": "https://www.linkedin.com/company/workintech/"
+    },
+    {
+      "id": 7,
+      "profileImg": "/images/team-user.jpg",
+      "username": "Cameron Williamson",
+      "position": "DevOps Engineer",
+      "linkedin": "https://www.linkedin.com/company/workintech/"
+    },
+    {
+      "id": 8,
+      "profileImg": "/images/team-user.jpg",
+      "username": "Leslie Alexander",
+      "position": "Mobile Developer",
+      "linkedin": "https://www.linkedin.com/company/workintech/"
+    }
+  ]

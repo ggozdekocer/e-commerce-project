@@ -1,23 +1,22 @@
-import './App.css'
 import { useEffect } from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import HomePage from "./features/home/pages/HomePage";
 import Layout from "./layout/Layout";
-import ShopPage from './pages/ShopPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import ContactPage from './pages/ContactPage';
-import TeamPage from './pages/TeamPage';
-import AboutUsPage from './pages/AboutUsPage';
-import SignUpPage from './pages/SignUpPage';
-import LoginPage from './pages/LoginPage';
-import BlogPage from "./pages/BlogPage";
-import CartPage from './pages/CartPage';
-import CreateOrderPage from './pages/CreateOrderPage';
-import PrivateRoute from './components/PrivateRoute';
-import OrdersPage from './pages/OrdersPage';
-import { verifyTokenThunk } from "./store/thunks/clientThunk";
+import ShopPage from './features/product/pages/ShopPage';
+import ProductDetailPage from './features/product/pages/ProductDetailPage';
+import ContactPage from './features/company/pages/ContactPage';
+import TeamPage from './features/company/pages/TeamPage';
+import AboutUsPage from './features/company/pages/AboutUsPage';
+import SignUpPage from './features/auth/pages/SignUpPage';
+import LoginPage from './features/auth/pages/LoginPage';
+import BlogPage from "./features/company/pages/BlogPage";
+import CartPage from './features/cart/pages/CartPage';
+import CreateOrderPage from './features/order/pages/CreateOrderPage';
+import PrivateRoute from './features/auth/components/PrivateRoute';
+import OrdersPage from './features/order/pages/OrdersPage';
+import { verifyTokenThunk } from "./features/auth/store/clientThunk";
 
 function App() {
   useEffect(() => {

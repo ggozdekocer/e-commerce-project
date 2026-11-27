@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { Search, ShoppingCart, TextAlignJustify, Phone, Mail, UserRound, ChevronDown, Package } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import { topBar } from "../mock/mockData";
 import { Link, useHistory } from "react-router-dom";
 import Gravatar from "react-gravatar";
-import { useClientStore } from "../store/client";
-import { useProductStore } from "../store/product";
-import { useCartStore } from "../store/cart";
-import axiosInstance from "../api/axios";
+import { useClientStore } from "../features/auth/store/client";
+import { useProductStore } from "../features/product/store/product";
+import { useCartStore } from "../features/cart/store/cart";
+import topBar from "../data/topBar.json";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +28,6 @@ const Header = () => {
     setUser(null);
     localStorage.removeItem("token");
     sessionStorage.removeItem("token");
-    delete axiosInstance.defaults.headers.common["Authorization"];
     history.push("/");
   };
 
